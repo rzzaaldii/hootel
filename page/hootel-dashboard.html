@@ -1,103 +1,163 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HooTEL – Dashboard</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="../style/hootel.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HooTEL – Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../style/hootel.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="layout">
+  <div class="layout">
 
-  <aside class="sidebar">
-    <a class="brand" href="hootel-dashboard.html"><img src="../img/logo.png" alt="HooTEL"></a>
-    <nav class="menu">
-      <a href="hootel-dashboard.html" class="active"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
-      <a href="hootel-booking-history.html"><i class="bi bi-journal-bookmark-fill"></i><span>My Booking</span></a>
-      <a href="hootel-profile.html"><i class="bi bi-person-fill"></i><span>Profile</span></a>
-    </nav>
-    <a href="hootel-signin.html" class="btn-logout"><i class="bi bi-box-arrow-left"></i><span>Log Out</span></a>
-  </aside>
+    <aside class="sidebar">
+      <a class="brand" href="hootel-dashboard.html"><img src="../img/logo.png" alt="HooTEL"></a>
+      <nav class="menu">
+        <a href="hootel-dashboard.html" class="active"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+        <a href="hootel-booking-history.html"><i class="bi bi-journal-bookmark-fill"></i><span>My Booking</span></a>
+        <a href="hootel-profile.html"><i class="bi bi-person-fill"></i><span>Profile</span></a>
+      </nav>
+      <a href="hootel-signin.html" class="btn-logout"><i class="bi bi-box-arrow-left"></i><span>Log Out</span></a>
+    </aside>
 
-  <div class="main">
-    <header class="topbar">
-      <label class="searchbox">
-        <i class="bi bi-search"></i>
-        <input type="text" placeholder="Search">
-      </label>
-      <div class="right">
-        <i class="bi bi-bell-fill bell"></i>
-        <div class="user">
-          <img src="../img/cust2.jpg" alt="Briliant Ghithraf">
-          <div><strong>Briliant Ghithraf</strong><span>bili123@gmail.com</span></div>
+    <div class="main">
+      <header class="topbar">
+        <label class="searchbox">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search">
+        </label>
+        <div class="right">
+          <i class="bi bi-bell-fill bell"></i>
+          <div class="user">
+            <img src="../img/cust2.jpg" alt="Briliant Ghithraf">
+            <div><strong>Briliant Ghithraf</strong><span>bili123@gmail.com</span></div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <main class="content">
-      <section class="hero">
-        <h2>Your Journey Starts Here</h2>
-        <p>Your all in one dashboard to explore a thousand stays</p>
-        <form>
-          <div class="hero-search">
-            <button type="button" class="field"><i class="bi bi-calendar3"></i>Check-in</button>
-            <button type="button" class="field"><i class="bi bi-calendar3"></i>Check-out</button>
-            <button type="button" class="field"><i class="bi bi-person-fill"></i>2 Guest, 1 Room</button>
-          </div>
-          <button type="submit" class="btn-teal btn-hero-search">Search</button>
-        </form>
-      </section>
+      <main class="content">
+        <section class="hero">
+          <h2>Your Journey Starts Here</h2>
+          <p>Your all in one dashboard to explore a thousand stays</p>
+          <form id="heroSearchForm">
+            <div class="hero-search">
+              <!-- Check-in dengan kalender -->
+              <div class="field-date-wrap">
+                <button type="button" class="field"><i class="bi bi-calendar3"></i><span
+                    class="checkin-label">Check-in</span></button>
+                <input type="date" class="checkin-input">
+              </div>
+              <div class="field-date-wrap">
+                <button type="button" class="field"><i class="bi bi-calendar3"></i><span
+                    class="checkout-label">Check-out</span></button>
+                <input type="date" class="checkout-input">
+              </div>
+              <div class="field-guest-wrap">
+                <button type="button" class="field btn-guest-toggle">
+                  <i class="bi bi-person-fill"></i>
+                  <span class="guest-room-label">2 Guest, 1 Room</span>
+                  <i class="bi bi-chevron-down chevron-icon"></i>
+                </button>
+                <div class="guest-dropdown">
+                  <div class="guest-row">
+                    <div class="guest-info">
+                      <span class="guest-title">Tamu</span>
+                      <small class="guest-desc">Jumlah orang</small>
+                    </div>
+                    <div class="counter-group">
+                      <button type="button" class="btn-counter btn-guest-minus">-</button>
+                      <span class="counter-val guest-val">2</span>
+                      <button type="button" class="btn-counter btn-guest-plus">+</button>
+                    </div>
+                  </div>
+                  <div class="guest-divider"></div>
+                  <div class="guest-row">
+                    <div class="guest-info">
+                      <span class="guest-title">Kamar</span>
+                      <small class="guest-desc">Jumlah kamar</small>
+                    </div>
+                    <div class="counter-group">
+                      <button type="button" class="btn-counter btn-room-minus">-</button>
+                      <span class="counter-val room-val">1</span>
+                      <button type="button" class="btn-counter btn-room-plus">+</button>
+                    </div>
+                  </div>
+                  <button type="button" class="btn-guest-apply">Selesai</button>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn-teal btn-hero-search">Search</button>
+          </form>
+        </section>
 
-      <section class="room-grid">
-        <a href="hootel-booking.html" class="room-card">
-          <img src="../img/kmr1.png" alt="Deluxe Room">
-          <div class="body">
-            <h3>Deluxe Room, Azura Bay Hotel</h3>
-            <p class="price">$100.00/night</p>
-            <p class="loc">Pearl Bay, Sembilang Island</p>
-          </div>
-        </a>
+        <section class="room-grid">
+          <a href="hootel-booking.html" class="room-card">
+            <img src="../img/kmr1.png" alt="Deluxe Room">
+            <div class="body">
+              <h3>Deluxe Room, Azura Bay Hotel</h3>
+              <p class="price">$100.00/night</p>
+              <p class="loc">Pearl Bay, Sembilang Island</p>
+            </div>
+          </a>
 
-        <a href="hootel-booking-grand-meridian.html" class="room-card">
-          <img src="../img/kmr2.png" alt="Executive Suite">
-          <div class="body">
-            <h3>Executive Suite, The Grand Meridian</h3>
-            <p class="price">$90.00/night</p>
-            <p class="loc">Raya District, Marendra City</p>
-          </div>
-        </a>
+          <a href="hootel-booking-grand-meridian.html" class="room-card">
+            <img src="../img/kmr2.png" alt="Executive Suite">
+            <div class="body">
+              <h3>Executive Suite, The Grand Meridian</h3>
+              <p class="price">$90.00/night</p>
+              <p class="loc">Raya District, Marendra City</p>
+            </div>
+          </a>
 
-        <a href="hootel-booking-cedarwood.html" class="room-card">
-          <img src="../img/kmr3.png" alt="Exclusive Room">
-          <div class="body">
-            <h3>Exclusive Room, Cedarwood Highland</h3>
-            <p class="price">$50.00/night</p>
-            <p class="loc">Harmony High, Pine Regency</p>
-          </div>
-        </a>
+          <a href="hootel-booking-cedarwood.html" class="room-card">
+            <img src="../img/kmr3.png" alt="Exclusive Room">
+            <div class="body">
+              <h3>Exclusive Room, Cedarwood Highland</h3>
+              <p class="price">$50.00/night</p>
+              <p class="loc">Harmony High, Pine Regency</p>
+            </div>
+          </a>
 
-        <a href="hootel-booking-lotus-garden.html" class="room-card">
-          <img src="../img/kmr4.png" alt="Twin Room">
-          <div class="body">
-            <h3>Twin Room, Lotus Garden Hotel</h3>
-            <p class="price">$80.00/night</p>
-            <p class="loc">Aster Garden Tourism Village, Ardhana City</p>
-          </div>
-        </a>
+          <a href="hootel-booking-lotus-garden.html" class="room-card">
+            <img src="../img/kmr4.png" alt="Twin Room">
+            <div class="body">
+              <h3>Twin Room, Lotus Garden Hotel</h3>
+              <p class="price">$80.00/night</p>
+              <p class="loc">Aster Garden Tourism Village, Ardhana City</p>
+            </div>
+          </a>
 
-        <a href="hootel-booking-sunrise-harbor.html" class="room-card">
-          <img src="../img/kmr5.png" alt="Family Room">
-          <div class="body">
-            <h3>Family Room, Sunrise Harbor Hotel</h3>
-            <p class="price">$70.00/night</p>
-            <p class="loc">Lantern Harbor, West Bay City</p>
-          </div>
-        </a>
-      </section>
-    </main>
+          <a href="hootel-booking-sunrise-harbor.html" class="room-card">
+            <img src="../img/kmr5.png" alt="Family Room">
+            <div class="body">
+              <h3>Family Room, Sunrise Harbor Hotel</h3>
+              <p class="price">$70.00/night</p>
+              <p class="loc">Lantern Harbor, West Bay City</p>
+            </div>
+          </a>
+        </section>
+        <div id="searchNotFound" class="dashboard-404" style="display: none;">
+          <div class="error-code">404</div>
+          <i class="bi bi-search error-icon"></i>
+          <h3>Hotel Tidak Ditemukan</h3>
+          <p>Maaf, hotel yang Anda cari tidak dapat ditemukan. Silakan periksa kembali ejaan nama hotel.</p>
+        </div>
+        <div id="notificationNotFound" class="dashboard-404" style="display: none;">
+          <div class="error-code">404</div>
+          <i class="bi bi-bell-slash-fill error-icon"></i>
+          <h3>Tidak Ada Notifikasi</h3>
+          <p>Belum ada riwayat notifikasi atau pesan masuk pada akun Anda.</p>
+          <button type="button" class="btn-back-dashboard" id="btnBackToRooms">
+            <i class="bi bi-arrow-left"></i> Kembali ke Dashboard
+          </button>
+        </div>
+      </main>
+    </div>
+
   </div>
-
-</div>
+  <script src="../js/hootel.js"></script>
 </body>
+
 </html>
